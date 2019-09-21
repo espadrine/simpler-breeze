@@ -1,0 +1,48 @@
+diff --git a/components/TextField.qml b/components/TextField.qml
+index d81e789..a0278f9 100644
+--- a/components/TextField.qml
++++ b/components/TextField.qml
+@@ -19,16 +19,15 @@
+ */
+ 
+ import QtQuick 2.1
+-import QtQuick.Controls 1.2 as QtControls
++import org.kde.plasma.components 3.0 as PlasmaComponents
+ import org.kde.plasma.core 2.0 as PlasmaCore
+-import QtQuick.Controls.Styles.Plasma 2.0 as Styles
+ import org.kde.kconfig 1.0
+ 
+ /**
+  * A plasma theme based text field widget.
+  * @inherit QtQuick.Controls.TextField
+  */
+-QtControls.TextField {
++PlasmaComponents.TextField {
+     id: textField
+ 
+     //Plasma api
+@@ -50,15 +49,6 @@ QtControls.TextField {
+                                                               && KAuthorized.authorize("lineedit_reveal_password")
+                                                               && (echoMode == TextInput.Normal || textField.length > 0)
+ 
+-    //Deprecated/unsupported api
+-    /**
+-     * type: string
+-     *
+-     * Allows to set a custom character for password fields
+-     * @warning Not implemented in Plasma components.
+-     */
+-    property string passwordCharacter
+-
+     /**
+      * Whether the text field is highlighted or not
+      *
+@@ -82,8 +72,6 @@ QtControls.TextField {
+         print("DEPRECATED function");
+     }
+ 
+-    style: Styles.TextFieldStyle {}
+-
+     Row {
+         anchors {
+             right: textField.right
